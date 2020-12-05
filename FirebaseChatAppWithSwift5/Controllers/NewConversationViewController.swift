@@ -1,19 +1,15 @@
 //
-//  ViewController.swift
+//  NewConversationViewController.swift
 //  FirebaseChatAppWithSwift5
 //
 //  Created by Nikolas Aggelidis on 5/12/20.
+//  Copyright © 2020 NAPPS. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class NewConversationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-

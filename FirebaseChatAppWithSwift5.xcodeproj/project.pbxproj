@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		17345ABC257BB7A6009A447D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17345ABB257BB7A6009A447D /* AppDelegate.swift */; };
 		17345ABE257BB7A6009A447D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17345ABD257BB7A6009A447D /* SceneDelegate.swift */; };
-		17345AC0257BB7A6009A447D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17345ABF257BB7A6009A447D /* ViewController.swift */; };
-		17345AC3257BB7A6009A447D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17345AC1257BB7A6009A447D /* Main.storyboard */; };
+		17345AC0257BB7A6009A447D /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17345ABF257BB7A6009A447D /* ConversationsViewController.swift */; };
+		17345AC3257BB7A6009A447D /* Conversations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17345AC1257BB7A6009A447D /* Conversations.storyboard */; };
 		17345AC5257BB7A7009A447D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17345AC4257BB7A7009A447D /* Assets.xcassets */; };
 		17345AC8257BB7A7009A447D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17345AC6257BB7A7009A447D /* LaunchScreen.storyboard */; };
+		1777E19A257BBBF700CEAF09 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1777E199257BBBF700CEAF09 /* LoginViewController.swift */; };
+		1777E19D257BBCCC00CEAF09 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1777E19C257BBCCC00CEAF09 /* RegisterViewController.swift */; };
+		1777E1A0257BBD0500CEAF09 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1777E19F257BBD0500CEAF09 /* PhotoViewerViewController.swift */; };
+		1777E1A3257BBD2A00CEAF09 /* VideoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1777E1A2257BBD2A00CEAF09 /* VideoPlayerViewController.swift */; };
+		1777E1A6257BBD4B00CEAF09 /* NewConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1777E1A5257BBD4B00CEAF09 /* NewConversationViewController.swift */; };
+		1777E1A9257BBD6500CEAF09 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1777E1A8257BBD6500CEAF09 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17345AB8257BB7A6009A447D /* FirebaseChatAppWithSwift5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseChatAppWithSwift5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17345ABB257BB7A6009A447D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17345ABD257BB7A6009A447D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		17345ABF257BB7A6009A447D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		17345AC2257BB7A6009A447D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		17345ABF257BB7A6009A447D /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
+		17345AC2257BB7A6009A447D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Conversations.storyboard; sourceTree = "<group>"; };
 		17345AC4257BB7A7009A447D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17345AC7257BB7A7009A447D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17345AC9257BB7A7009A447D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1777E199257BBBF700CEAF09 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1777E19C257BBCCC00CEAF09 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1777E19F257BBD0500CEAF09 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
+		1777E1A2257BBD2A00CEAF09 /* VideoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewController.swift; sourceTree = "<group>"; };
+		1777E1A5257BBD4B00CEAF09 /* NewConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewConversationViewController.swift; sourceTree = "<group>"; };
+		1777E1A8257BBD6500CEAF09 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,69 @@
 		17345ABA257BB7A6009A447D /* FirebaseChatAppWithSwift5 */ = {
 			isa = PBXGroup;
 			children = (
-				17345ABB257BB7A6009A447D /* AppDelegate.swift */,
-				17345ABD257BB7A6009A447D /* SceneDelegate.swift */,
-				17345ABF257BB7A6009A447D /* ViewController.swift */,
-				17345AC1257BB7A6009A447D /* Main.storyboard */,
-				17345AC4257BB7A7009A447D /* Assets.xcassets */,
-				17345AC6257BB7A7009A447D /* LaunchScreen.storyboard */,
-				17345AC9257BB7A7009A447D /* Info.plist */,
+				1777E192257BBA4F00CEAF09 /* Controllers */,
+				1777E191257BBA4700CEAF09 /* Views */,
+				1777E190257BBA3F00CEAF09 /* Models */,
+				1777E18F257BBA3900CEAF09 /* ViewModels */,
+				1777E18E257BBA3200CEAF09 /* Resources */,
 			);
 			path = FirebaseChatAppWithSwift5;
+			sourceTree = "<group>";
+		};
+		1777E18E257BBA3200CEAF09 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17345AC9257BB7A7009A447D /* Info.plist */,
+				17345ABB257BB7A6009A447D /* AppDelegate.swift */,
+				17345ABD257BB7A6009A447D /* SceneDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1777E18F257BBA3900CEAF09 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1777E190257BBA3F00CEAF09 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1777E191257BBA4700CEAF09 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1777E193257BBA8000CEAF09 /* Storyboards */,
+				17345AC4257BB7A7009A447D /* Assets.xcassets */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1777E192257BBA4F00CEAF09 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17345ABF257BB7A6009A447D /* ConversationsViewController.swift */,
+				1777E199257BBBF700CEAF09 /* LoginViewController.swift */,
+				1777E19C257BBCCC00CEAF09 /* RegisterViewController.swift */,
+				1777E19F257BBD0500CEAF09 /* PhotoViewerViewController.swift */,
+				1777E1A2257BBD2A00CEAF09 /* VideoPlayerViewController.swift */,
+				1777E1A5257BBD4B00CEAF09 /* NewConversationViewController.swift */,
+				1777E1A8257BBD6500CEAF09 /* ProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1777E193257BBA8000CEAF09 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				17345AC1257BB7A6009A447D /* Conversations.storyboard */,
+				17345AC6257BB7A7009A447D /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +193,7 @@
 			files = (
 				17345AC8257BB7A7009A447D /* LaunchScreen.storyboard in Resources */,
 				17345AC5257BB7A7009A447D /* Assets.xcassets in Resources */,
-				17345AC3257BB7A6009A447D /* Main.storyboard in Resources */,
+				17345AC3257BB7A6009A447D /* Conversations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,21 +204,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17345AC0257BB7A6009A447D /* ViewController.swift in Sources */,
+				1777E19A257BBBF700CEAF09 /* LoginViewController.swift in Sources */,
+				1777E19D257BBCCC00CEAF09 /* RegisterViewController.swift in Sources */,
+				1777E1A6257BBD4B00CEAF09 /* NewConversationViewController.swift in Sources */,
+				17345AC0257BB7A6009A447D /* ConversationsViewController.swift in Sources */,
+				1777E1A3257BBD2A00CEAF09 /* VideoPlayerViewController.swift in Sources */,
 				17345ABC257BB7A6009A447D /* AppDelegate.swift in Sources */,
+				1777E1A9257BBD6500CEAF09 /* ProfileViewController.swift in Sources */,
 				17345ABE257BB7A6009A447D /* SceneDelegate.swift in Sources */,
+				1777E1A0257BBD0500CEAF09 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		17345AC1257BB7A6009A447D /* Main.storyboard */ = {
+		17345AC1257BB7A6009A447D /* Conversations.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				17345AC2257BB7A6009A447D /* Base */,
 			);
-			name = Main.storyboard;
+			name = Conversations.storyboard;
 			sourceTree = "<group>";
 		};
 		17345AC6257BB7A7009A447D /* LaunchScreen.storyboard */ = {
@@ -289,7 +361,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7X48R5E6LJ;
-				INFOPLIST_FILE = FirebaseChatAppWithSwift5/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FirebaseChatAppWithSwift5/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,7 +381,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7X48R5E6LJ;
-				INFOPLIST_FILE = FirebaseChatAppWithSwift5/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/FirebaseChatAppWithSwift5/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
