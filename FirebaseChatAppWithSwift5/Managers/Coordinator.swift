@@ -108,7 +108,7 @@ extension Coordinator {
                 
             case .presentWithNavigation(let animated):
                 let navigationController = UINavigationController(rootViewController: controllerToNavigate)
-                navigationController.isNavigationBarHidden = true
+                navigationController.modalPresentationStyle = .fullScreen
                 self.present(navigationController, animated: animated)
                 
             case .push(let animated):
