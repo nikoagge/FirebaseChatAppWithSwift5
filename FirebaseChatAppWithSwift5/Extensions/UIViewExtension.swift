@@ -32,4 +32,10 @@ extension UIView {
     public var right: CGFloat {
         return self.frame.size.width + self.frame.origin.x
     }
+    
+    func fround(radius: CGFloat) {
+        layer.cornerRadius = radius
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.lightGray.cgColor
+    }
 }

@@ -45,6 +45,8 @@ class RegisterViewController: UIViewController {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profilePictureImageViewTapped))
         profilePictureImageView.addGestureRecognizer(tapGestureRecognizer)
+        profilePictureImageView.layer.masksToBounds = true
+        profilePictureImageView.fround(radius: profilePictureImageView.width/2)
     }
     
     @objc private func registerButtonTapped() {
@@ -61,7 +63,7 @@ class RegisterViewController: UIViewController {
     }
     
     @objc private func profilePictureImageViewTapped() {
-        debugPrint("profile picture tapped")
+        presentPhotoActionSheet()
     }
 }
 
@@ -78,5 +80,39 @@ extension RegisterViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func presentPhotoActionSheet() {
+        self.showActionSheet(title: "Profile Picture", message: "Select a picture for your profile", actionTitles: ["Take photo", "Choose photo"], sourceView: self.view) { [weak self] (actionTitle) in
+            if actionTitle == "Take photo" {
+                self?.presentImagePickerController(for: "Camera")
+            } else if actionTitle == "Choose photo" {
+                self?.presentImagePickerController(for: "PhotoLibrary")
+            }
+        }
+    }
+    
+    func presentImagePickerController(for sourceType: String) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        if sourceType == "Camera" {
+            imagePickerController.sourceType = .camera
+        } else {
+            imagePickerController.sourceType = .photoLibrary
+        }
+        present(imagePickerController, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        guard let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+        profilePictureImageView.image = selectedImage
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }
