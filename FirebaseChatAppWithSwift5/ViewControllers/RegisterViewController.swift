@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     @IBOutlet weak var profilePictureImageView: UIImageView!
@@ -55,10 +57,20 @@ class RegisterViewController: UIViewController {
         emailAddressTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
-        guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let emailAddress = emailAddressTextField.text, let password = passwordTextField.text, !firstName.isEmpty, !lastName.isEmpty, !emailAddress.isEmpty, !password.isEmpty else {
+        guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let emailAddress = emailAddressTextField.text, let password = passwordTextField.text, !firstName.isEmpty, !lastName.isEmpty, !emailAddress.isEmpty, !password.isEmpty, password.count >= 6 else {
             showAlertController(message: "Please fill all fields in order to register and create a new account.")
             
             return
+        }
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: emailAddress, password: password) { (authDataResult, error) in
+            guard let authDataResult = authDataResult, error == nil else {
+                debugPrint("Error creating user")
+                
+                return
+            }
+            
+            debugPrint("\(authDataResult.user) user created.")
         }
     }
     

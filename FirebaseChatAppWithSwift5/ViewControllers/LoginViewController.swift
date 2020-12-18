@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController, Coordinator {
     @IBOutlet weak var emailAddressTextField: UITextField!
@@ -28,6 +29,16 @@ class LoginViewController: UIViewController, Coordinator {
             showAlertController(message: "Please fill all fields in order to login.")
             
             return
+        }
+        
+        FirebaseAuth.Auth.auth().signIn(withEmail: emailAddress, password: password) { (authDataResult, error) in
+            guard let authDataResult = authDataResult, error == nil else {
+                debugPrint("Failed to log in user with email address: \(emailAddress)")
+                
+                return
+            }
+            
+            debugPrint("\(authDataResult.user) logged in.")
         }
     }
     
