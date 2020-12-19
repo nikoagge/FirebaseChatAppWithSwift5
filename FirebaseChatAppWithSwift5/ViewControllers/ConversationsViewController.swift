@@ -6,12 +6,19 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ConversationsViewController: UIViewController, Coordinator {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if !UserDefaultsManager.shared.isUserLoggedIn() {
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        validateAuthentication()
+    }
+    
+    private func validateAuthentication() {
+        if FirebaseAuth.Auth.auth().currentUser == nil {
             navigate(.init(page: .login, navigationStyle: .presentWithNavigation(animated: true)))
         }
     }

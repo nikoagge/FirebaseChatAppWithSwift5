@@ -31,7 +31,8 @@ class LoginViewController: UIViewController, Coordinator {
             return
         }
         
-        FirebaseAuth.Auth.auth().signIn(withEmail: emailAddress, password: password) { (authDataResult, error) in
+        FirebaseAuth.Auth.auth().signIn(withEmail: emailAddress, password: password) { [weak self] (authDataResult, error) in
+            guard let self = self else { return }
             guard let authDataResult = authDataResult, error == nil else {
                 debugPrint("Failed to log in user with email address: \(emailAddress)")
                 
@@ -39,6 +40,7 @@ class LoginViewController: UIViewController, Coordinator {
             }
             
             debugPrint("\(authDataResult.user) logged in.")
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
     }
     

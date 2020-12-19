@@ -56,21 +56,30 @@ class RegisterViewController: UIViewController {
         lastNameTextField.resignFirstResponder()
         emailAddressTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-        
+    
         guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let emailAddress = emailAddressTextField.text, let password = passwordTextField.text, !firstName.isEmpty, !lastName.isEmpty, !emailAddress.isEmpty, !password.isEmpty, password.count >= 6 else {
             showAlertController(message: "Please fill all fields in order to register and create a new account.")
             
             return
         }
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: emailAddress, password: password) { (authDataResult, error) in
-            guard let authDataResult = authDataResult, error == nil else {
-                debugPrint("Error creating user")
-                
-                return
-            }
+        DatabaseManager.shared.checkIfUserExist(with: emailAddress) { [weak self] (exists) in
+            guard let self = self else { return }
+            guard !exists else {
+                self.showAlertController(message: "A user account with this email address already exists.")
+                return }
             
-            debugPrint("\(authDataResult.user) user created.")
+            FirebaseAuth.Auth.auth().createUser(withEmail: emailAddress, password: password) { (authDataResult, error) in
+                guard let authDataResult = authDataResult, error == nil else {
+                    debugPrint("Error creating user")
+                    
+                    return
+                }
+                debugPrint("\(authDataResult.user) user created.")
+                
+                DatabaseManager.shared.insertUser(with: User(firstName: firstName, lastName: lastName, emailAddress: emailAddress))
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
