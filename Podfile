@@ -6,7 +6,9 @@ target 'FirebaseChatAppWithSwift5' do
   use_frameworks!
 
   # Pods for FirebaseChatAppWithSwift5
+    pod 'Firebase'
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
+    pod 'FBSDKLoginKit'
 end

@@ -8,11 +8,21 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController, Coordinator {
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    
+    private let facebookLoginButton: FBLoginButton = {
+        let flb = FBLoginButton()
+        flb.permissions = ["email, public_profile"]
+        
+        return flb
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +65,14 @@ class LoginViewController: UIViewController, Coordinator {
         passwordTextField.customSetup(isSecureTextEntry: true)
         passwordTextField.delegate = self
         loginButton.customSetup()
+        contentView.addSubview(facebookLoginButton)
+        facebookLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        facebookLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 30).isActive = true
+        facebookLoginButton.leadingAnchor.constraint(equalTo: loginButton.leadingAnchor).isActive = true
+        facebookLoginButton.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor).isActive = true
+        facebookLoginButton.heightAnchor.constraint(equalToConstant: 49).isActive = true
+        facebookLoginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30).isActive = true
+        facebookLoginButton.delegate = self
     }
     
     @objc private func registerButtonTapped() {
@@ -71,5 +89,58 @@ extension LoginViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+}
+
+extension LoginViewController: LoginButtonDelegate {
+    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
+        guard let token = result?.token?.tokenString else {
+            debugPrint("User failed to log in with Facebook.")
+            
+            return
+        }
+        
+        let facebookRequest = FBSDKLoginKit.GraphRequest(graphPath: "me", parameters: ["fields": "email, name"], tokenString: token, version: nil, httpMethod: .get)
+        facebookRequest.start { (graphRequestConnection, result, error) in
+            guard let result = result as? [String: Any], error == nil else {
+                debugPrint("Failed to make Facebook Graph request")
+                
+                return
+            }
+            
+            debugPrint(result)
+            guard let userName = result["name"] as? String, let emailAddress = result["email"] as? String else {
+                debugPrint("Failed to get userName and emailAddress from Facebook Graph result.")
+                
+                return
+            }
+            let userNameComponentsArray = userName.components(separatedBy: " ")
+            guard userNameComponentsArray.count == 2 else { return }
+            let firstName = userNameComponentsArray[0]
+            let lastName = userNameComponentsArray[1]
+            DatabaseManager.shared.checkIfUserExist(with: emailAddress) { (userExists) in
+                if !userExists {
+                    DatabaseManager.shared.insertUser(with: User(firstName: firstName, lastName: lastName, emailAddress: emailAddress))
+                }
+            }
+            
+            let credential = FacebookAuthProvider.credential(withAccessToken: token)
+            FirebaseAuth.Auth.auth().signIn(with: credential) { [weak self] (authDataResult, error) in
+                guard let self = self else { return }
+                guard authDataResult != nil, error == nil else {
+                    if let error = error {
+                    debugPrint("Facebook credential login failed, MFA may be needed: \(error).")
+                    }
+                    return
+                }
+                
+                debugPrint("User successfully logged in.")
+                self.navigationController?.dismiss(animated: true)
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
+        
     }
 }

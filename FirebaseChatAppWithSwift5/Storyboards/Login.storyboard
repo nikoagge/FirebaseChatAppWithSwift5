@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-EF-0HL">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CL9-EF-0HL">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQH-Bc-0ZI">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yQH-Bc-0ZI">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="375"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messenger_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Jud-wX-JRp">
@@ -63,7 +63,6 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="hS3-7J-uOt" firstAttribute="leading" secondItem="yQH-Bc-0ZI" secondAttribute="leading" constant="13" id="8th-DU-8ly"/>
-                                            <constraint firstAttribute="bottom" secondItem="YM7-wl-66j" secondAttribute="bottom" constant="30" id="Ash-WD-2X8"/>
                                             <constraint firstItem="trk-xl-fQY" firstAttribute="top" secondItem="hS3-7J-uOt" secondAttribute="bottom" constant="30" id="HQt-34-uGW"/>
                                             <constraint firstAttribute="trailing" secondItem="trk-xl-fQY" secondAttribute="trailing" constant="13" id="bzE-8F-gyf"/>
                                             <constraint firstItem="YM7-wl-66j" firstAttribute="top" secondItem="trk-xl-fQY" secondAttribute="bottom" constant="30" id="hdF-3H-0p9"/>
@@ -98,9 +97,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="XP6-gn-zbi"/>
                     <connections>
+                        <outlet property="contentView" destination="yQH-Bc-0ZI" id="uNg-eS-1eC"/>
                         <outlet property="emailAddressTextField" destination="hS3-7J-uOt" id="K7b-sC-hQQ"/>
                         <outlet property="loginButton" destination="YM7-wl-66j" id="7tF-GK-pWq"/>
                         <outlet property="passwordTextField" destination="trk-xl-fQY" id="Oda-hq-eZ3"/>
+                        <outlet property="scrollView" destination="CL9-EF-0HL" id="fmX-wB-I5r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bOe-Fv-PiJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
