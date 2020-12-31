@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17151BD8259E00CB00244C99 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17151BD7259E00CB00244C99 /* NotificationNameExtensions.swift */; };
 		17345ABC257BB7A6009A447D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17345ABB257BB7A6009A447D /* AppDelegate.swift */; };
 		17345ABE257BB7A6009A447D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17345ABD257BB7A6009A447D /* SceneDelegate.swift */; };
 		17345AC0257BB7A6009A447D /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17345ABF257BB7A6009A447D /* ConversationsViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17151BD7259E00CB00244C99 /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		17345AB8257BB7A6009A447D /* FirebaseChatAppWithSwift5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseChatAppWithSwift5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17345ABB257BB7A6009A447D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17345ABD257BB7A6009A447D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,11 +224,22 @@
 				175EA044257CFAD20006EAC9 /* UITextFieldExtension.swift */,
 				175EA04A257D28680006EAC9 /* UIButtonExtension.swift */,
 				175EA04D257D2D260006EAC9 /* UIViewControllerExtension.swift */,
+				17151BD7259E00CB00244C99 /* NotificationNameExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		170F04F3258FC3B800003FAC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		17345AB7257BB7A6009A447D /* FirebaseChatAppWithSwift5 */ = {
@@ -234,10 +247,12 @@
 			buildConfigurationList = 17345ACC257BB7A7009A447D /* Build configuration list for PBXNativeTarget "FirebaseChatAppWithSwift5" */;
 			buildPhases = (
 				7E35146DE8AA91CDCC32B95A /* [CP] Check Pods Manifest.lock */,
+				170F04F3258FC3B800003FAC /* Headers */,
 				17345AB4257BB7A6009A447D /* Sources */,
 				17345AB5257BB7A6009A447D /* Frameworks */,
 				17345AB6257BB7A6009A447D /* Resources */,
 				623814EEC615A3A748A4ACF5 /* [CP] Embed Pods Frameworks */,
+				B3B5A5D37AB3047656D501BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -342,6 +357,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B3B5A5D37AB3047656D501BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirebaseChatAppWithSwift5/Pods-FirebaseChatAppWithSwift5-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FirebaseChatAppWithSwift5/Pods-FirebaseChatAppWithSwift5-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FirebaseChatAppWithSwift5/Pods-FirebaseChatAppWithSwift5-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -366,6 +398,7 @@
 				17D9697B258DFF0B00931D5F /* User.swift in Sources */,
 				17345ABE257BB7A6009A447D /* SceneDelegate.swift in Sources */,
 				1777E1A0257BBD0500CEAF09 /* PhotoViewerViewController.swift in Sources */,
+				17151BD8259E00CB00244C99 /* NotificationNameExtensions.swift in Sources */,
 				1777E1B5257C323D00CEAF09 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

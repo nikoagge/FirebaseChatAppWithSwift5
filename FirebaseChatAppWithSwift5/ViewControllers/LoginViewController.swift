@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController, Coordinator {
     @IBOutlet weak var scrollView: UIScrollView!
@@ -24,9 +25,18 @@ class LoginViewController: UIViewController, Coordinator {
         return flb
     }()
     
+    private let googleLoginButton = GIDSignInButton()
+    private var loginObserver: NSObjectProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loginObserver = NotificationCenter.default.addObserver(forName: .didLoginNotification, object: nil, queue: nil) { [weak self] (_) in
+            guard let self = self else { return }
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         setupNavigationBar()
         setupViews()
     }
@@ -65,14 +75,28 @@ class LoginViewController: UIViewController, Coordinator {
         passwordTextField.customSetup(isSecureTextEntry: true)
         passwordTextField.delegate = self
         loginButton.customSetup()
+        
         contentView.addSubview(facebookLoginButton)
         facebookLoginButton.translatesAutoresizingMaskIntoConstraints = false
         facebookLoginButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 30).isActive = true
         facebookLoginButton.leadingAnchor.constraint(equalTo: loginButton.leadingAnchor).isActive = true
         facebookLoginButton.trailingAnchor.constraint(equalTo: loginButton.trailingAnchor).isActive = true
         facebookLoginButton.heightAnchor.constraint(equalToConstant: 49).isActive = true
-        facebookLoginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30).isActive = true
         facebookLoginButton.delegate = self
+        
+        contentView.addSubview(googleLoginButton)
+        googleLoginButton.translatesAutoresizingMaskIntoConstraints = false
+        googleLoginButton.topAnchor.constraint(equalTo: facebookLoginButton.bottomAnchor, constant: 30).isActive = true
+        googleLoginButton.leadingAnchor.constraint(equalTo: facebookLoginButton.leadingAnchor).isActive = true
+        googleLoginButton.trailingAnchor.constraint(equalTo: facebookLoginButton.trailingAnchor).isActive = true
+        googleLoginButton.heightAnchor.constraint(equalToConstant: 49).isActive = true
+        googleLoginButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30).isActive = true
+    }
+    
+    deinit {
+        if let loginObserver = loginObserver {
+            NotificationCenter.default.removeObserver(loginObserver)
+        }
     }
     
     @objc private func registerButtonTapped() {
@@ -141,6 +165,5 @@ extension LoginViewController: LoginButtonDelegate {
     }
     
     func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
     }
 }
